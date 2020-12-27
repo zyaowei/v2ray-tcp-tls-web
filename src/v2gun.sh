@@ -218,12 +218,12 @@ preinstall() {
 get_cert_standalone() {
   # use standalone mode to issue cert
   colorEcho ${BLUE} "Issuing certificate"
-  ~/.acme.sh/acme.sh --issue -d "$1" --standalone --keylength ec-256
+  ~/.acme.sh/acme.sh --issue -d "$1" --debug --standalone --keylength ec-256 --listen-v6
 }
 
 get_cert() {
   colorEcho ${BLUE} "Issuing certificate"
-  ~/.acme.sh/acme.sh --issue -d "$1" -w /var/www/html --keylength ec-256
+  ~/.acme.sh/acme.sh --issue -d "$1" -w /var/www/html --keylength ec-256 --listen-v6
 
   # install certificate
   colorEcho ${BLUE} "Installing certificate"
